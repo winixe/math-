@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winixe Games</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0d14;
+      color: white;
+    }
+    header {
+      padding: 24px;
+      text-align: center;
+      background: #131725;
+      border-bottom: 1px solid #292f45;
+    }
+    header h1 { margin: 0; color: #75f5ff; }
+    header p { color: #aab2c5; }
+    main { max-width: 1050px; margin: auto; padding: 24px; }
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #343b52;
+      background: #171c2b;
+      color: white;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+    .game {
+      background: #171c2b;
+      padding: 20px;
+      border: 1px solid #2b334a;
+      border-radius: 14px;
+    }
+    .game h2 { margin-top: 0; font-size: 19px; }
+    .game p { color: #b5bdd0; font-size: 14px; }
+    .tag { color: #75f5ff; font-size: 12px; }
+    footer { text-align: center; padding: 30px; color: #8992a8; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Winixe Games</h1>
+    <p>Your browser gaming hub</p>
+  </header>
+  <main>
+    <h2>Find a game</h2>
+    <input id="search" placeholder="Search games..." aria-label="Search games">
+    <div class="games" id="games">
+      <article class="game" data-name="2048 puzzle">
+        <span class="tag">PUZZLE</span>
+        <h2>2048</h2>
+        <p>Combine tiles and reach 2048.</p>
+        <a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">Play game ↗</a>
+      </article>
+      <article class="game" data-name="hextris puzzle">
+        <span class="tag">PUZZLE</span>
+        <h2>Hextris</h2>
+        <p>A fast-paced hexagon puzzle game.</p>
+        <a href="https://hextris.io/" target="_blank" rel="noopener noreferrer">Play game ↗</a>
+      </article>
+      <article class="game" data-name="little alchemy puzzle">
+        <span class="tag">DISCOVERY</span>
+        <h2>Little Alchemy</h2>
+        <p>Combine elements to discover new things.</p>
+        <a href="https://littlealchemy.com/" target="_blank" rel="noopener noreferrer">Play game ↗</a>
+      </article>
+      <article class="game" data-name="chess strategy">
+        <span class="tag">STRATEGY</span>
+        <h2>Chess</h2>
+        <p>Play chess in your browser.</p>
+        <a href="https://lichess.org/" target="_blank" rel="noopener noreferrer">Play game ↗</a>
+      </article>
+    </div>
+  </main>
+  <footer>Winixe Games · Play responsibly</footer>
+  <script>
+    const search = document.getElementById('search');
+    const cards = document.querySelectorAll('.game');
+    search.addEventListener('input', () => {
+      const query = search.value.toLowerCase();
+      cards.forEach(card => {
+        card.hidden = !card.dataset.name.includes(query);
+      });
+    });
+  </script>
+</body>
+</html>
